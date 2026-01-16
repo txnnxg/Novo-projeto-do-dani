@@ -1,0 +1,207 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #000;
+    color: #fff;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(90deg, #000 0%, #c5541c 100%);
+    padding: 30px 0px 80px 0px;
+    overflow: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+}
+
+/* LOGO */
+.logo img {
+    width: 200px; /* Ajuste esse número se achar que ficou grande ou pequeno */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block; /* Remove espaços indesejados abaixo da imagem */
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.menu li {
+    cursor: pointer;
+}
+
+.btn-outline {
+/* COR E FUNDO */
+    background-color: #0F0F0F;  /* Um preto "suave" (quase carvão) igual ao da interface */
+    color: #ffffff;
+    
+    /* BORDA (truque para o efeito hover funcionar sem pular) */
+    border: 1px solid #0F0F0F;  
+
+    /* FONTE (O segredo para ficar igual à foto) */
+    /* Isso usa a fonte padrão do computador/celular (San Francisco, Segoe UI, etc) */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 600;           /* Semi-negrito (não é tão pesado quanto o bold comum) */
+    font-size: 14px;            /* Tamanho mais delicado, conforme a imagem */
+    
+    /* FORMATO */
+    padding: 8px 20px;          /* Mais compacto verticalmente */
+    border-radius: 99px;        /* Arredondamento total (formato pílula) */
+    
+    /* COMPORTAMENTO */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: transparent;
+    border-color: #ffffff;      /* A borda fica branca */
+}
+
+/* TEXTO */
+.hero-content {
+    margin-top: 80px;
+    max-width: 600px;
+    padding-left: 60px;
+}
+
+.hero-text h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary {
+/* COR E FUNDO */
+    background: #4f6bff;  /* Um preto "suave" (quase carvão) igual ao da interface */
+    color: #ffffff;
+    
+    /* BORDA (truque para o efeito hover funcionar sem pular) */
+    border: 1px solid #4f6bff;  
+
+    /* FONTE (O segredo para ficar igual à foto) */
+    /* Isso usa a fonte padrão do computador/celular (San Francisco, Segoe UI, etc) */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 600;           /* Semi-negrito (não é tão pesado quanto o bold comum) */
+    font-size: 14px;            /* Tamanho mais delicado, conforme a imagem */
+    
+    /* FORMATO */
+    padding: 8px 20px;          /* Mais compacto verticalmente */
+    border-radius: 99px;        /* Arredondamento total (formato pílula) */
+    
+    /* COMPORTAMENTO */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    border-color: #ffffff;      /* A borda fica branca */
+}
+
+.btn-dark {
+    background: #111;  /* Um preto "suave" (quase carvão) igual ao da interface */
+    color: #ffffff;
+    
+    /* BORDA (truque para o efeito hover funcionar sem pular) */
+    border: 1px solid #111;  
+
+    /* FONTE (O segredo para ficar igual à foto) */
+    /* Isso usa a fonte padrão do computador/celular (San Francisco, Segoe UI, etc) */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 600;           /* Semi-negrito (não é tão pesado quanto o bold comum) */
+    font-size: 14px;            /* Tamanho mais delicado, conforme a imagem */
+    
+    /* FORMATO */
+    padding: 8px 20px;          /* Mais compacto verticalmente */
+    border-radius: 99px;        /* Arredondamento total (formato pílula) */
+    
+    /* COMPORTAMENTO */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+    background-color: transparent;
+    border-color: #ffffff;      /* A borda fica branca */
+}
+
+/* =========================
+   CARROSSEL (VERSÃO FINAL)
+   ========================= */
+
+/* MÁSCARA (fade invisível nas bordas) */
+.carousel-mask {
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,1) 12%,
+        rgba(0,0,0,1) 88%,
+        rgba(0,0,0,0) 100%
+    );
+
+    mask-image: linear-gradient(
+        to right,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,1) 12%,
+        rgba(0,0,0,1) 88%,
+        rgba(0,0,0,0) 100%
+    );
+}
+
+/* TRACK (quem se move) */
+.carousel-track {
+    display: flex;
+    gap: 28px;
+    width: max-content;
+    background: transparent;
+    margin: 20px;
+
+    animation: scroll 30s linear infinite;
+}
+
+/* IMAGENS */
+.carousel-track img {
+    height: 220px;
+    width: auto;
+    border-radius: 18px;
+
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* ANIMAÇÃO */
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}

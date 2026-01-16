@@ -1,0 +1,1 @@
+// Carrossel automático simples (CSS já resolve)
