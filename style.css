@@ -24,6 +24,15 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 60px;
+    height: 80px; /* Altura fixa ajuda a organizar */
+    position: relative;
+    z-index: 10;
+
+    /* --- ADICIONE ISSO PARA CENTRALIZAR --- */
+    width: 100%;           /* Garante que ocupe o espaço disponível */
+    max-width: 1280px;     /* Define uma largura limite (padrão de sites modernos) */
+    margin: 0 auto;        /* A mágica: margem automática nas laterais centraliza o bloco */
+
 }
 
 /* LOGO */
@@ -34,9 +43,29 @@ body {
 }
 
 .menu {
-    list-style: none;
     display: flex;
     gap: 25px;
+    list-style: none;
+    align-items: center; /* Alinha itens e botão no centro vertical */
+}
+
+/* Esconde o hambúrguer no computador */
+.hamburger {
+    display: none; 
+}
+
+.close-btn {
+    display: none;
+}
+
+/* Estilo das barrinhas do hambúrguer */
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
 }
 
 .menu li {
@@ -203,5 +232,121 @@ body {
     }
     to {
         transform: translateX(-50%);
+    }
+}
+/* =========================
+   RESPONSIVIDADE (CELULAR)
+   ========================= */
+@media (max-width: 768px) {
+
+    /* 1. Mostra o ícone do hambúrguer */
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    /* 2. Transforma o menu horizontal em um painel vertical */
+    .menu {
+        position: fixed;       /* Fixa na tela */
+        left: -100%;           /* Esconde fora da tela (na esquerda) */
+        top: 80px;             /* Logo abaixo da navbar */
+        flex-direction: column;
+        background-color: #000; /* Fundo preto */
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;      /* Animação suave ao entrar */
+        padding: 40px 0;       /* Espaço interno */
+    }
+
+    /* Espaço entre os itens no celular */
+    .menu li {
+        margin: 20px 0;
+    }
+
+    /* Classe que o JavaScript vai adicionar para mostrar o menu */
+    .menu.active {
+        left: 0; /* Traz o menu para dentro da tela */
+    }
+
+    .close-btn {
+        display: block; /* Faz aparecer */
+        position: absolute; /* Libera para mover para qualquer canto */
+        top: 10px;      /* Distância do topo do menu */
+        right: 30px;    /* Distância da direita */
+        font-size: 30px; /* Tamanho do X */
+        cursor: pointer;
+        margin: 0 !important; /* Remove margens padrões da lista */
+
+    }
+    /* Efeito de "X" no hambúrguer quando ativo */
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* 1. Ajuste da Barra de Navegação */
+    .navbar {
+        flex-direction: column; /* Empilha Logo, Menu e Botão */
+        padding: 20px;          /* Reduz o espaçamento lateral */
+        gap: 20px;              /* Espaço entre os itens */
+    }
+
+    .logo img {
+        width: 150px;           /* Logo um pouco menor */
+        margin: 0 auto;         /* Garante centralização se necessário */
+    }
+
+    /* 2. Ajuste do Texto Principal (Hero) */
+    .hero-content {
+        padding: 0 20px;        /* Margem de segurança nas laterais */
+        margin-top: 40px;       /* Menos espaço no topo */
+        text-align: center;     /* Centraliza o texto */
+        max-width: 100%;        /* Ocupa a largura toda */
+    }
+
+    .hero-text h1 {
+        font-size: 34px;        /* Fonte menor (era 52px) para não quebrar */
+        line-height: 1.2;
+    }
+
+    /* 3. Botões de Ação */
+    .hero-buttons {
+        justify-content: center; /* Centraliza os botões */
+        flex-direction: column;  /* Um botão em cima do outro */
+        gap: 15px;
+    }
+
+    /* Ajuste para os botões ocuparem a largura total no celular (melhor para o dedo) */
+    .btn-primary, .btn-dark {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* 4. Carrossel */
+    .carousel-track img {
+        height: 160px;          /* Imagens menores */
+        gap: 15px;
+    }
+    
+    .carousel-track {
+        gap: 15px;              /* Menos espaço entre as fotos */
+    }
+}
+
+/* =========================
+   ALINHAMENTO EM TELAS GRANDES
+   ========================= */
+@media (min-width: 769px) {
+    .navbar {
+        display: flex;
+        justify-content: center; /* Isso manda o MENU para o meio */
+        position: relative;      /* Importante: define o limite para a logo não fugir da barra */
+        padding: 0 60px;         /* Mantém o espaçamento original */
+    }
+
+    .logo {
+        position: absolute;      /* "Saia da fila e flutue livremente" */
+        left: 0px;              /* Cole na esquerda (respeitando o padding original) */
+        top: 50%;                /* Fique na metade da altura */
+        transform: translateY(-50%); /* Ajuste matemático para ficar perfeitamente no meio vertical */
     }
 }
