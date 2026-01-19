@@ -47,6 +47,7 @@ body {
     gap: 25px;
     list-style: none;
     align-items: center; /* Alinha itens e botão no centro vertical */
+    margin-left: 150px;
 }
 
 /* Esconde o hambúrguer no computador */
