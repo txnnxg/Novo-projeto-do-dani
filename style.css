@@ -170,6 +170,8 @@ body {
     /* COMPORTAMENTO */
     cursor: pointer;
     transition: all 0.3s ease;
+
+    text-decoration: none; /* Remove sublinhado de links */
 }
 
 .btn-dark:hover {
