@@ -353,3 +353,102 @@ body {
         transform: translateY(-50%); /* Ajuste matemático para ficar perfeitamente no meio vertical */
     }
 }
+
+/* =========================
+   SEÇÃO SERVIÇOS
+   ========================= */
+.services {
+/* AQUI ESTÁ A MÁGICA EM DUAS CAMADAS: */
+    background: 
+        /* Camada 1 (Frente): Um degradê vertical que vai do Transparente para o Preto Sólido */
+        linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000000 50%, #000000 100%),
+        
+        /* Camada 2 (Fundo): O mesmo degradê horizontal do seu topo (Preto -> Laranja) */
+        linear-gradient(90deg, #000000 0%, #c5541c 100%);
+
+    padding: 60px 60px 100px 60px;
+    color: #fff;
+}
+
+.services-container {
+    max-width: 1280px;      /* Limita a largura para não esticar demais */
+    margin: 0 auto;         /* Centraliza o bloco na tela */
+}
+
+/* Cabeçalho (Título e Botão) */
+.services-header {
+    display: flex;
+    justify-content: space-between; /* Texto num canto, botão no outro */
+    align-items: flex-end;          /* Alinha pela base */
+    margin-bottom: 60px;            /* Espaço até a caixa grande */
+    flex-wrap: wrap;                /* Permite quebrar linha no celular */
+    gap: 30px;
+}
+
+/* O texto "SERVIÇOS" azul */
+.label {
+    color: #4f6bff;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px; /* Letras espaçadas */
+    display: block;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Título Grande */
+.services-info h2 {
+    font-size: 48px;
+    font-weight: 500; /* Levemente mais fino que bold */
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+/* Descrição cinza */
+.services-info p {
+    color: #999;
+    font-size: 18px;
+    max-width: 600px;
+}
+
+/* A caixa grande (Placeholder) */
+.media-box {
+    width: 100%;
+    height: 500px;          /* Altura da caixa */
+    background-color: #0a0a0a; /* Quase preto, levemente mais claro */
+    border: 1px dashed #333;   /* Borda pontilhada discreta */
+    border-radius: 24px;       /* Cantos arredondados */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #444;
+}
+
+.placeholder-icon {
+    font-size: 40px;
+    color: #ffd700; /* Estrela amarela */
+    margin-bottom: 10px;
+}
+
+/* =========================
+   RESPONSIVIDADE DA SEÇÃO
+   ========================= */
+@media (max-width: 768px) {
+    .services {
+        padding: 60px 20px; /* Menos padding no celular */
+    }
+
+    .services-header {
+        flex-direction: column; /* Empilha texto e botão */
+        align-items: flex-start;
+    }
+
+    .services-info h2 {
+        font-size: 32px; /* Título menor no celular */
+    }
+
+    .media-box {
+        height: 300px; /* Caixa menor no celular */
+    }
+}
