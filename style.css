@@ -1,4 +1,6 @@
-/* RESET */
+/* =========================================
+   1. RESET E ESTILOS GERAIS
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -7,101 +9,90 @@
 }
 
 body {
-    background: #000;
+    background-color: #000;
     color: #fff;
+    overflow-x: hidden; /* Evita rolagem lateral */
 }
 
-/* HERO */
-.hero {
-    background: linear-gradient(90deg, #000 0%, #c5541c 100%);
-    padding: 30px 0px 80px 0px;
-    overflow: hidden;
-}
+a { text-decoration: none; } /* Remove sublinhado de tudo */
 
-/* NAVBAR */
+/* =========================================
+   2. BARRA DE NAVEGAÇÃO (NAVBAR)
+   ========================================= */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centraliza o Menu na tela */
     align-items: center;
     padding: 0 60px;
-    height: 80px; /* Altura fixa ajuda a organizar */
+    height: 80px;
     position: relative;
-    z-index: 10;
-
-    /* --- ADICIONE ISSO PARA CENTRALIZAR --- */
-    width: 100%;           /* Garante que ocupe o espaço disponível */
-    max-width: 1280px;     /* Define uma largura limite (padrão de sites modernos) */
-    margin: 0 auto;        /* A mágica: margem automática nas laterais centraliza o bloco */
-
+    z-index: 100;
+    width: 100%;
 }
 
-/* LOGO */
+/* LOGO (Fixa na esquerda) */
+.logo {
+    position: absolute; /* Sai da fila e cola no canto */
+    left: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .logo img {
-    width: 200px; /* Ajuste esse número se achar que ficou grande ou pequeno */
-    height: auto; /* Mantém a proporção da imagem */
-    display: block; /* Remove espaços indesejados abaixo da imagem */
+    width: 200px;
+    height: auto;
+    display: block;
 }
 
+/* MENU (Centralizado automaticamente pelo pai) */
 .menu {
     display: flex;
     gap: 25px;
     list-style: none;
-    align-items: center; /* Alinha itens e botão no centro vertical */
-    margin-left: 150px;
-}
-
-/* Esconde o hambúrguer no computador */
-.hamburger {
-    display: none; 
-}
-
-.close-btn {
-    display: none;
-}
-
-/* Estilo das barrinhas do hambúrguer */
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    transition: all 0.3s ease-in-out;
-    background-color: white;
+    align-items: center;
+    /* SEM MARGENS ESTRANHAS AQUI */
 }
 
 .menu li {
     cursor: pointer;
+    font-size: 16px;
+    color: #ccc;
+    transition: color 0.3s;
 }
 
-.btn-outline {
-/* COR E FUNDO */
-    background-color: #0F0F0F;  /* Um preto "suave" (quase carvão) igual ao da interface */
-    color: #ffffff;
-    
-    /* BORDA (truque para o efeito hover funcionar sem pular) */
-    border: 1px solid #0F0F0F;  
+.menu li:hover { color: #fff; }
 
-    /* FONTE (O segredo para ficar igual à foto) */
-    /* Isso usa a fonte padrão do computador/celular (San Francisco, Segoe UI, etc) */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-weight: 600;           /* Semi-negrito (não é tão pesado quanto o bold comum) */
-    font-size: 14px;            /* Tamanho mais delicado, conforme a imagem */
-    
-    /* FORMATO */
-    padding: 8px 20px;          /* Mais compacto verticalmente */
-    border-radius: 99px;        /* Arredondamento total (formato pílula) */
-    
-    /* COMPORTAMENTO */
+/* BOTÃO "GRAB TEMPLATE" */
+.btn-outline {
+    background-color: #0F0F0F;
+    color: #ffffff;
+    border: 1px solid #0F0F0F;
+    font-family: system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 99px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .btn-outline:hover {
     background-color: transparent;
-    border-color: #ffffff;      /* A borda fica branca */
+    border-color: #ffffff;
 }
 
-/* TEXTO */
+/* Esconde itens mobile no Desktop */
+.hamburger, .close-btn { display: none; }
+
+/* =========================================
+   3. SEÇÃO HERO (TOPO)
+   ========================================= */
+.hero {
+    background: linear-gradient(90deg, #000 0%, #c5541c 100%);
+    padding: 30px 0px 80px 0px;
+    overflow: hidden;
+}
+
 .hero-content {
     margin-top: 80px;
     max-width: 600px;
@@ -111,344 +102,255 @@ body {
 .hero-text h1 {
     font-size: 52px;
     margin-bottom: 20px;
+    line-height: 1.1;
 }
 
 .hero-text p {
     color: #ccc;
     margin-bottom: 30px;
+    font-size: 18px;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-}
+.hero-buttons { display: flex; gap: 15px; }
 
-.btn-primary {
-/* COR E FUNDO */
-    background: #4f6bff;  /* Um preto "suave" (quase carvão) igual ao da interface */
-    color: #ffffff;
-    
-    /* BORDA (truque para o efeito hover funcionar sem pular) */
-    border: 1px solid #4f6bff;  
-
-    /* FONTE (O segredo para ficar igual à foto) */
-    /* Isso usa a fonte padrão do computador/celular (San Francisco, Segoe UI, etc) */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-weight: 600;           /* Semi-negrito (não é tão pesado quanto o bold comum) */
-    font-size: 14px;            /* Tamanho mais delicado, conforme a imagem */
-    
-    /* FORMATO */
-    padding: 8px 20px;          /* Mais compacto verticalmente */
-    border-radius: 99px;        /* Arredondamento total (formato pílula) */
-    
-    /* COMPORTAMENTO */
+/* Botões Padrão */
+.btn-primary, .btn-dark {
+    padding: 12px 22px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
     cursor: pointer;
-    transition: all 0.3s ease;
+    border: none;
 }
+.btn-primary { background: #4f6bff; color: #fff; }
+.btn-dark { background: #111; color: #fff; }
 
-.btn-primary:hover {
-    background-color: transparent;
-    border-color: #ffffff;      /* A borda fica branca */
-}
-
-.btn-dark {
-    background: #111;  /* Um preto "suave" (quase carvão) igual ao da interface */
-    color: #ffffff;
-    
-    /* BORDA (truque para o efeito hover funcionar sem pular) */
-    border: 1px solid #111;  
-
-    /* FONTE (O segredo para ficar igual à foto) */
-    /* Isso usa a fonte padrão do computador/celular (San Francisco, Segoe UI, etc) */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-weight: 600;           /* Semi-negrito (não é tão pesado quanto o bold comum) */
-    font-size: 14px;            /* Tamanho mais delicado, conforme a imagem */
-    
-    /* FORMATO */
-    padding: 8px 20px;          /* Mais compacto verticalmente */
-    border-radius: 99px;        /* Arredondamento total (formato pílula) */
-    
-    /* COMPORTAMENTO */
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-    text-decoration: none; /* Remove sublinhado de links */
-}
-
-.btn-dark:hover {
-    background-color: transparent;
-    border-color: #ffffff;      /* A borda fica branca */
-}
-
-/* =========================
-   CARROSSEL (VERSÃO FINAL)
-   ========================= */
-
-/* MÁSCARA (fade invisível nas bordas) */
+/* =========================================
+   4. CARROSSEL
+   ========================================= */
 .carousel-mask {
     width: 100%;
     overflow: hidden;
-    background: transparent;
-
-    -webkit-mask-image: linear-gradient(
-        to right,
-        rgba(0,0,0,0) 0%,
-        rgba(0,0,0,1) 12%,
-        rgba(0,0,0,1) 88%,
-        rgba(0,0,0,0) 100%
-    );
-
-    mask-image: linear-gradient(
-        to right,
-        rgba(0,0,0,0) 0%,
-        rgba(0,0,0,1) 12%,
-        rgba(0,0,0,1) 88%,
-        rgba(0,0,0,0) 100%
-    );
+    margin-top: 60px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
 
-/* TRACK (quem se move) */
 .carousel-track {
     display: flex;
     gap: 28px;
     width: max-content;
-    background: transparent;
-    margin: 20px;
-
+    margin: 20px 0;
     animation: scroll 30s linear infinite;
 }
 
-/* IMAGENS */
 .carousel-track img {
     height: 220px;
     width: auto;
     border-radius: 18px;
-
     object-fit: cover;
-    flex-shrink: 0;
 }
 
-/* ANIMAÇÃO */
 @keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
-/* =========================
-   RESPONSIVIDADE (CELULAR)
-   ========================= */
-@media (max-width: 768px) {
-
-    /* 1. Mostra o ícone do hambúrguer */
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
-
-    /* 2. Transforma o menu horizontal em um painel vertical */
-    .menu {
-        position: fixed;       /* Fixa na tela */
-        left: -100%;           /* Esconde fora da tela (na esquerda) */
-        top: 80px;             /* Logo abaixo da navbar */
-        flex-direction: column;
-        background-color: #000; /* Fundo preto */
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;      /* Animação suave ao entrar */
-        padding: 40px 0;       /* Espaço interno */
-    }
-
-    /* Espaço entre os itens no celular */
-    .menu li {
-        margin: 20px 0;
-    }
-
-    /* Classe que o JavaScript vai adicionar para mostrar o menu */
-    .menu.active {
-        left: 0; /* Traz o menu para dentro da tela */
-    }
-
-    .close-btn {
-        display: block; /* Faz aparecer */
-        position: absolute; /* Libera para mover para qualquer canto */
-        top: 10px;      /* Distância do topo do menu */
-        right: 30px;    /* Distância da direita */
-        font-size: 30px; /* Tamanho do X */
-        cursor: pointer;
-        margin: 0 !important; /* Remove margens padrões da lista */
-
-    }
-    /* Efeito de "X" no hambúrguer quando ativo */
-    .hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    /* 1. Ajuste da Barra de Navegação */
-    .navbar {
-        flex-direction: column; /* Empilha Logo, Menu e Botão */
-        padding: 20px;          /* Reduz o espaçamento lateral */
-        gap: 20px;              /* Espaço entre os itens */
-    }
-
-    .logo img {
-        width: 150px;           /* Logo um pouco menor */
-        margin: 0 auto;         /* Garante centralização se necessário */
-    }
-
-    /* 2. Ajuste do Texto Principal (Hero) */
-    .hero-content {
-        padding: 0 20px;        /* Margem de segurança nas laterais */
-        margin-top: 40px;       /* Menos espaço no topo */
-        text-align: center;     /* Centraliza o texto */
-        max-width: 100%;        /* Ocupa a largura toda */
-    }
-
-    .hero-text h1 {
-        font-size: 34px;        /* Fonte menor (era 52px) para não quebrar */
-        line-height: 1.2;
-    }
-
-    /* 3. Botões de Ação */
-    .hero-buttons {
-        justify-content: center; /* Centraliza os botões */
-        flex-direction: column;  /* Um botão em cima do outro */
-        gap: 15px;
-    }
-
-    /* Ajuste para os botões ocuparem a largura total no celular (melhor para o dedo) */
-    .btn-primary, .btn-dark {
-        width: 100%;
-        text-align: center;
-    }
-
-    /* 4. Carrossel */
-    .carousel-track img {
-        height: 160px;          /* Imagens menores */
-        gap: 15px;
-    }
-    
-    .carousel-track {
-        gap: 15px;              /* Menos espaço entre as fotos */
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
-/* =========================
-   ALINHAMENTO EM TELAS GRANDES
-   ========================= */
-@media (min-width: 769px) {
-    .navbar {
-        display: flex;
-        justify-content: center; /* Isso manda o MENU para o meio */
-        position: relative;      /* Importante: define o limite para a logo não fugir da barra */
-        padding: 0 60px;         /* Mantém o espaçamento original */
-    }
-
-    .logo {
-        position: absolute;      /* "Saia da fila e flutue livremente" */
-        left: 0px;              /* Cole na esquerda (respeitando o padding original) */
-        top: 50%;                /* Fique na metade da altura */
-        transform: translateY(-50%); /* Ajuste matemático para ficar perfeitamente no meio vertical */
-    }
-}
-
-/* =========================
-   SEÇÃO SERVIÇOS
-   ========================= */
+/* =========================================
+   5. SEÇÃO SERVIÇOS
+   ========================================= */
 .services {
-/* AQUI ESTÁ A MÁGICA EM DUAS CAMADAS: */
+    /* Camada dupla para transição perfeita */
     background: 
-        /* Camada 1 (Frente): Um degradê vertical que vai do Transparente para o Preto Sólido */
         linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000000 50%, #000000 100%),
-        
-        /* Camada 2 (Fundo): O mesmo degradê horizontal do seu topo (Preto -> Laranja) */
         linear-gradient(90deg, #000000 0%, #c5541c 100%);
-
     padding: 60px 60px 100px 60px;
     color: #fff;
 }
 
-.services-container {
-    max-width: 1280px;      /* Limita a largura para não esticar demais */
-    margin: 0 auto;         /* Centraliza o bloco na tela */
-}
+.services-container { max-width: 1280px; margin: 0 auto; }
 
-/* Cabeçalho (Título e Botão) */
 .services-header {
     display: flex;
-    justify-content: space-between; /* Texto num canto, botão no outro */
-    align-items: flex-end;          /* Alinha pela base */
-    margin-bottom: 60px;            /* Espaço até a caixa grande */
-    flex-wrap: wrap;                /* Permite quebrar linha no celular */
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
     gap: 30px;
 }
 
-/* O texto "SERVIÇOS" azul */
 .label {
     color: #4f6bff;
     font-size: 14px;
     font-weight: bold;
-    letter-spacing: 1px; /* Letras espaçadas */
+    letter-spacing: 1px;
     display: block;
     margin-bottom: 15px;
     text-transform: uppercase;
 }
 
-/* Título Grande */
-.services-info h2 {
-    font-size: 48px;
-    font-weight: 500; /* Levemente mais fino que bold */
-    margin-bottom: 15px;
-    line-height: 1.1;
-}
+.services-info h2 { font-size: 48px; font-weight: 500; margin-bottom: 15px; }
+.services-info p { color: #999; font-size: 18px; max-width: 600px; }
 
-/* Descrição cinza */
-.services-info p {
-    color: #999;
-    font-size: 18px;
-    max-width: 600px;
-}
+/* =========================
+   GALERIA INTERATIVA (3 RETÂNGULOS)
+   ========================= */
 
-/* A caixa grande (Placeholder) */
+/* 1. O Container (Grade de 3 colunas) */
 .media-box {
+    /* Removemos o estilo antigo de caixa pontilhada */
+    background: transparent;
+    border: none;
+    height: auto;
+    
+    /* Novo Layout */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 colunas iguais */
+    gap: 20px; /* Espaço entre as fotos */
     width: 100%;
-    height: 500px;          /* Altura da caixa */
-    background-color: #0a0a0a; /* Quase preto, levemente mais claro */
-    border: 1px dashed #333;   /* Borda pontilhada discreta */
-    border-radius: 24px;       /* Cantos arredondados */
+}
+
+/* 2. O Cartão individual */
+.gallery-item {
+    position: relative;       /* Para segurar os itens dentro */
+    height: 450px;            /* Altura dos retângulos */
+    border-radius: 16px;      /* Cantos arredondados */
+    overflow: hidden;         /* Importante: Esconde o que sai da caixa */
+    background-color: #0F0F0F;/* O fundo preto onde fica o texto */
+    cursor: pointer;
+}
+
+/* 3. O Texto (Fica escondido no fundo) */
+.gallery-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;             /* Altura da área do texto */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #444;
+    z-index: 1;               /* Fica na camada de baixo */
 }
 
-.placeholder-icon {
-    font-size: 40px;
-    color: #ffd700; /* Estrela amarela */
-    margin-bottom: 10px;
+.gallery-info h3 {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.gallery-info p {
+    font-size: 12px;
+    color: #4f6bff;           /* Azul do seu tema */
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* 4. A Imagem (Fica por cima de tudo) */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* Preenche sem esticar */
+    position: relative;
+    z-index: 2;               /* Fica ACIMA do texto */
+    transition: transform 0.4s ease; /* A mágica da suavidade */
+}
+
+/* 5. A ANIMAÇÃO (Hover) */
+.gallery-item:hover img {
+    /* Quando passa o mouse, a imagem sobe 80px */
+    transform: translateY(-80px);
 }
 
 /* =========================
-   RESPONSIVIDADE DA SEÇÃO
+   AJUSTE MOBILE (Ficar um embaixo do outro)
    ========================= */
 @media (max-width: 768px) {
-    .services {
-        padding: 60px 20px; /* Menos padding no celular */
-    }
-
-    .services-header {
-        flex-direction: column; /* Empilha texto e botão */
-        align-items: flex-start;
-    }
-
-    .services-info h2 {
-        font-size: 32px; /* Título menor no celular */
-    }
-
     .media-box {
-        height: 300px; /* Caixa menor no celular */
+        grid-template-columns: 1fr; /* Vira 1 coluna só */
+        height: auto;
     }
+
+    .gallery-item {
+        height: 350px; /* Um pouco menor no celular */
+    }
+}
+
+.placeholder-icon { font-size: 40px; color: #ffd700; margin-bottom: 10px; }
+
+/* =========================================
+   6. MOBILE (CELULAR) - AQUI ESTÁ A CORREÇÃO
+   ========================================= */
+@media (max-width: 768px) {
+    
+    /* MENU TELA CHEIA */
+    .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        position: fixed;
+        top: 0;
+        left: -100%; /* Escondido na esquerda */
+        width: 100%; /* Ocupa largura total */
+        height: 100vh; /* Ocupa altura total */
+        
+        background-color: #000;
+        z-index: 9998;
+        transition: 0.5s ease;
+        margin: 0 !important; /* Reseta qualquer margem antiga */
+        padding: 0;
+    }
+
+    .menu.active {
+        left: 0; /* Aparece */
+    }
+
+    .menu li { margin: 20px 0; font-size: 24px; }
+
+    /* Exibe Hambúrguer e X */
+    .hamburger { display: block; z-index: 9999; cursor: pointer; }
+    .close-btn { 
+        display: block; 
+        position: absolute; 
+        top: 30px; 
+        right: 30px; 
+        font-size: 40px; 
+        cursor: pointer; 
+        z-index: 10000; /* Garante clique */
+    }
+    
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: white;
+        transition: 0.3s;
+    }
+
+    /* AJUSTES DE LAYOUT MOBILE */
+    .navbar {
+        justify-content: space-between; /* Logo esq, Hambúrguer dir */
+        padding: 0 20px;
+    }
+
+    .logo {
+        position: static; /* Remove posição absoluta no celular */
+        transform: none;
+    }
+    
+    .logo img { width: 140px; }
+
+    .hero-content { padding: 0 20px; margin-top: 40px; text-align: center; }
+    .hero-text h1 { font-size: 34px; }
+    .hero-buttons { flex-direction: column; }
+    .btn-primary, .btn-dark { width: 100%; text-align: center; }
+
+    .services { padding: 60px 20px; }
+    .services-header { flex-direction: column; align-items: flex-start; }
+    .services-info h2 { font-size: 32px; }
+    .media-box { height: 300px; }
 }
