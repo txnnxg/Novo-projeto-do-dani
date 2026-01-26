@@ -533,3 +533,618 @@ a { text-decoration: none; }
     .footer-col p { margin: 0 auto; }
     .footer-logo img { margin: 0 auto 20px auto; display: block; }
 }
+
+/* =========================
+   SEÇÃO EXCLUSIVOS (PREMIUM)
+   ========================= */
+.exclusive-section {
+    background-color: #000; /* Fundo preto total */
+    padding: 100px 60px;
+    border-top: 1px solid #111; /* Separação sutil da seção anterior */
+}
+
+.exclusive-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* CABEÇALHO (Igual ao da referência) */
+.exclusive-header {
+    display: flex;
+    justify-content: space-between; /* Texto na ponta, botão na outra */
+    align-items: flex-end;          /* Alinha por baixo */
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.header-text {
+    max-width: 600px;
+}
+
+.label-blue {
+    color: #4f6bff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.header-text h2 {
+    font-size: 56px; /* Título bem grande */
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.header-text p {
+    color: #999;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* GRID DO CONTEÚDO (Esq: Lista | Dir: Foto) */
+.exclusive-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide meio a meio */
+    gap: 80px; /* Espaço grande entre texto e foto */
+    align-items: center;
+}
+
+/* LISTA DE CARACTERÍSTICAS */
+.features-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-item {
+    padding: 40px 0;
+    border-top: 1px solid #333; /* Linha cinza escura em cima */
+}
+
+.feature-item.last {
+    border-bottom: 1px solid #333; /* O último ganha linha embaixo também */
+}
+
+.feature-item h3 {
+    font-size: 32px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 15px;
+    cursor: default;
+}
+
+.feature-item p {
+    color: #888;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+/* IMAGEM DA DIREITA */
+.feature-image-box {
+    width: 100%;
+    height: 600px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+}
+
+.feature-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.feature-image-box:hover img {
+    transform: scale(1.05); /* Zoom suave ao passar o mouse */
+}
+
+/* =========================
+   RESPONSIVIDADE (CELULAR)
+   ========================= */
+@media (max-width: 900px) {
+    .exclusive-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .header-text h2 {
+        font-size: 36px;
+    }
+
+    .exclusive-content {
+        grid-template-columns: 1fr; /* Vira uma coluna só */
+        gap: 40px;
+    }
+
+    .feature-image-box {
+        height: 400px;
+        order: -1; /* Joga a imagem para cima da lista no celular (opcional) */
+    }
+    
+    .exclusive-section {
+        padding: 60px 20px;
+    }
+}
+
+/* =========================
+   SEÇÃO PROJETOS DESTAQUE
+   ========================= */
+.featured-section {
+    background-color: #000;
+    padding: 100px 60px;
+    border-top: 1px solid #111; /* Linha sutil separando da anterior */
+}
+
+.featured-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho Centralizado */
+.featured-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.featured-header h2 {
+    font-size: 48px;
+    color: #fff;
+    margin: 15px 0;
+}
+
+.featured-header p {
+    color: #999;
+    font-size: 18px;
+}
+
+/* Grid de 3 Colunas */
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+    gap: 30px;
+}
+
+/* O CARD */
+.featured-card {
+    background-color: #000;
+    border: 1px solid #222;
+    border-radius: 24px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.featured-card:hover {
+    border-color: #4f6bff; /* Borda azul no hover */
+    transform: translateY(-5px);
+}
+
+/* Parte de Cima: Ícone + Badge */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #111;
+    border-radius: 50%; /* Faz ficar redondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
+}
+
+.card-info {
+    text-align: right;
+}
+
+.card-info h4 {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.badge-pill {
+    background-color: #111;
+    color: #4f6bff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    border: 1px solid #222;
+}
+
+/* Corpo: Títulos */
+.card-body {
+    margin-bottom: 30px;
+}
+
+.card-body h3 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.card-body p {
+    color: #888;
+    font-size: 14px;
+}
+
+/* Rodapé do Card: Botão + Data */
+.card-action {
+    margin-top: auto; /* Empurra para o fundo */
+}
+
+/* Botão Esticado (Largura total) */
+.btn-primary.full-width {
+    display: block; /* Ocupa a linha toda */
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.post-date {
+    display: block;
+    text-align: center;
+    color: #555;
+    font-size: 12px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+    .featured-grid {
+        grid-template-columns: 1fr; /* 1 coluna no celular */
+    }
+    
+    .featured-section {
+        padding: 60px 20px;
+    }
+    
+    .featured-header h2 {
+        font-size: 32px;
+    }
+}
+
+/* =========================
+   SEÇÃO DEPOIMENTOS (TESTIMONIALS)
+   ========================= */
+.testimonials-section {
+    background-color: #000;
+    padding: 100px 60px;
+    border-top: 1px solid #111; /* Linha de separação */
+}
+
+.testimonials-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho Centralizado */
+.testimonials-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.testimonials-header h2 {
+    font-size: 48px;
+    color: #fff;
+    margin: 15px 0;
+    line-height: 1.1;
+}
+
+.testimonials-header p {
+    color: #999;
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grid 2x2 (Duas colunas) */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide em 2 partes iguais */
+    gap: 30px;
+}
+
+/* Cartão de Depoimento */
+.testimonial-card {
+    background-color: #080808; /* Um preto levemente diferente do fundo */
+    border: 1px solid #222;
+    border-radius: 24px;       /* Cantos bem arredondados */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;         /* Altura mínima para ficarem iguais */
+    transition: all 0.3s ease;
+}
+
+/* Efeito Hover (Borda Azul) */
+.testimonial-card:hover {
+    border-color: #4f6bff;
+    transform: translateY(-5px);
+    background-color: #0F0F0F;
+}
+
+/* Texto do Depoimento */
+.quote-text {
+    font-size: 18px;
+    color: #ccc;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Info do Cliente (Nome e Serviço) */
+.client-info h4 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.client-info span {
+    color: #555;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr; /* Vira 1 coluna no celular */
+    }
+
+    .testimonials-section {
+        padding: 60px 20px;
+    }
+
+    .testimonials-header h2 {
+        font-size: 32px;
+    }
+}
+
+/* =========================
+   SEÇÃO EQUIPE (TEAM)
+   ========================= */
+.team-section {
+    background-color: #000;
+    padding: 100px 60px;
+    border-top: 1px solid #111;
+}
+
+.team-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho igual aos outros */
+.team-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.team-header h2 {
+    font-size: 48px;
+    color: #fff;
+    margin: 15px 0;
+}
+
+.team-header p {
+    color: #999;
+    font-size: 18px;
+}
+
+/* Grid */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    gap: 30px;
+}
+
+/* Card do Profissional */
+.team-card {
+    background-color: #050505; /* Fundo quase preto */
+    border: 1px solid #222;
+    border-radius: 24px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espaço entre as partes do card */
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+    border-color: #4f6bff;
+    transform: translateY(-5px);
+}
+
+/* Topo: Foto + Nome */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%; /* Faz a foto ficar redonda */
+    object-fit: cover;
+    border: 2px solid #333;
+}
+
+.profile-info h3 {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.profile-info span {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Linha de Estatísticas (Meio) */
+.stats-row {
+    display: flex;
+    justify-content: space-between; /* Espalha os 3 itens */
+    padding: 15px 0;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1; /* Cada um ocupa o mesmo espaço */
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.stat-item span {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Botão Full Width já configuramos antes, 
+   mas garanta que ele tenha margem zero aqui se precisar */
+.team-card .btn-primary {
+    margin-bottom: 0;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+    .team-grid {
+        grid-template-columns: 1fr; /* 1 por linha no celular */
+    }
+    
+    .team-section {
+        padding: 60px 20px;
+    }
+}
+
+/* =========================
+   RODAPÉ FINAL (DEGRADÊ PRETO PARA AZUL)
+   ========================= */
+.final-footer {
+    /* A MUDANÇA MÁGICA ESTÁ AQUI: */
+    /* Começa preto (#000) no topo e termina no seu azul (#4f6bff) embaixo */
+    background: linear-gradient(to bottom, #000000 0%, #4f6bff 100%);
+    
+    padding: 100px 60px 40px 60px;
+    color: #fff;
+    overflow: hidden;
+    border-top: none; /* Sem borda para o degradê fluir */
+}
+
+.footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+/* LADO ESQUERDO */
+.footer-brand {
+    max-width: 500px;
+}
+
+.brand-desc {
+    color: #e6e6ff;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.big-logo {
+    font-size: 90px;
+    font-weight: bold;
+    letter-spacing: -3px;
+    line-height: 1;
+    color: #ffffff;
+    text-transform: lowercase;
+}
+
+/* LADO DIREITO (Links) */
+.footer-links {
+    display: flex;
+    gap: 80px;
+}
+
+.link-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.link-column a {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.link-column a:hover {
+    opacity: 0.7;
+}
+
+/* RODAPÉ DO RODAPÉ (Copyright) */
+.footer-bottom {
+    text-align: center;
+    /* Linha divisória sutil e transparente */
+    border-top: 1px solid rgba(255, 255, 255, 0.15); 
+    padding-top: 40px;
+    color: #e6e6ff;
+    font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVIDADE (CELULAR)
+   ========================= */
+@media (max-width: 900px) {
+    .final-footer {
+        padding: 60px 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .big-logo {
+        font-size: 60px;
+    }
+
+    .footer-links {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
