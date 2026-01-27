@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Júlia & Natan | Okamoto Edition</title>
+    <link rel="stylesheet" href="style-galeria.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="gallery-page">
+
+    <header class="gallery-hero">
+        <div class="hero-bg">
+            <img src="imagens/foto-de-capa.jpeg" alt="Capa Casal">
+        </div>
+        
+        <div class="gallery-hero-content">
+            <h1 class="couple-name">Ana Júlia & Natan</h1>
+            <p class="event-date">26 DE SETEMBRO, 2025</p>
+            <button onclick="scrollToGallery()" class="btn-outline-light">Ver Galeria</button>
+        </div>
+
+        <div class="hero-footer-brand">
+            DANIEL OKAMOTO EDITION
+        </div>
+    </header>
+
+    <section id="photo-grid" class="gallery-section">
+        <div class="masonry-grid">
+            
+            <div class="photo-item"><img src="imagens/abraco-frente.JPG" alt="Casamento"></div>
+            <div class="photo-item"><img src="imagens/flores.jpeg" alt="Casamento"></div>
+            <div class="photo-item"><img src="imagens/abraço.jpeg" alt="Casamento"></div>
+            <div class="photo-item"><img src="imagens/flores-beijo.jpeg" alt="Casamento"></div>
+            <div class="photo-item"><img src="imagens/Pedido-serio.jpeg" alt="Casamento"></div>
+            <div class="photo-item"><img src="imagens/beijo-flores-preto.JPG" alt="Casamento"></div>
+            <div class="photo-item"><img src="imagens/Pedido-rindo.jpeg" alt="Casamento"></div>
+            <div class="photo-item"><img src="imagens/abraço3.JPG" alt="Casamento"></div>
+            
+        </div>
+    </section>
+
+    <footer class="gallery-footer">
+        <button onclick="scrollToTop()" class="btn-back-top">Voltar ao topo</button>
+        <p class="powered-by">Powered by <strong>Okamoto Edition</strong></p>
+        
+        <a href="projeto.html" class="back-home-btn">
+            <i class="fas fa-arrow-left"></i> Home
+        </a>
+    </footer>
+
+    <script>
+        // Função para rolar até as fotos suavemente
+        function scrollToGallery() {
+            document.getElementById('photo-grid').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Função para voltar ao topo
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
