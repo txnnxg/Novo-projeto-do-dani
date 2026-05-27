@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -51,7 +51,7 @@ a { text-decoration: none; }
 /* MENU */
 .menu {
     display: flex;
-    gap: 25px;
+    gap: 60px;
     list-style: none;
     align-items: center;
 }
@@ -88,14 +88,25 @@ a { text-decoration: none; }
 .hamburger, .close-btn { display: none; }
 
 /* =========================================
-   3. SEÇÃO HERO (SEM LINHA E COM ESPAÇO)
+   3. SEÇÃO HERO (COM IMAGEM DE FUDO)
    ========================================= */
 .hero {
-    background: linear-gradient(90deg, #000 0%, #c5541c 100%);
+/* 1. O fundo agora tem duas camadas: o degradê transparente e a imagem */
+    background: 
+/* Camada superior: Degradê QUASE PRETO na esquerda, alaranjado na direita */
+        linear-gradient(90deg, 
+            rgba(0, 0, 0, 0.95) 0%,   /* Muito escuro na esquerda (0.95 de opacidade) */
+            rgba(0, 0, 0, 0.80) 40%,  /* Mantém bem escuro até quase a metade */
+            rgba(197, 84, 28, 0.7) 100%), /* Alaranjado mais presente na direita */
+        /* Camada inferior: A sua foto fotográfica */
+        url('imagens/Pedido-serio.jpeg'); /* <-- MUDE AQUI PARA O NOME DA SUA FOTO */
+        
+    background-size: cover; /* Faz a imagem cobrir a tela inteira sem distorcer */
+    background-position: center; /* Centraliza o foco da foto */
+    background-repeat: no-repeat; /* Evita que a foto se repita como um mosaico */
+    
     padding: 0;
     overflow: hidden;
-    
-    /* Altura da tela */
     height: 100vh;
     min-height: 700px;
     display: flex;
@@ -122,6 +133,7 @@ a { text-decoration: none; }
     margin-bottom: 20px; /* Diminuí um pouco para aproximar do texto */
     line-height: 1.1;
     color: #fff;
+    font-weight: 700;
 }
 
 /* LINHA FLEXÍVEL (Texto | Botões) */
@@ -145,6 +157,34 @@ a { text-decoration: none; }
 .hero-buttons {
     display: flex;
     gap: 15px;
+}
+
+/* =========================================
+   CRIANDO O ESFUMAÇADO NO FUNDO DO HERO
+   ========================================= */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Cobre a linha perfeitamente */
+    left: 0;
+    width: 100%;
+    height: 200px; /* Altura da transição suave */
+    
+    /* Puxa as exatas mesmas cores da seção de baixo */
+    background: linear-gradient(90deg, #000000 0%, #c5541c 100%);
+    
+    /* Cria a máscara que faz o esfumaçado transparente para cima */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+    
+    pointer-events: none; /* Impede que isso bloqueie cliques */
+    z-index: 1; /* Fica acima do fundo, mas abaixo do texto */
+}
+
+/* Garante que o carrossel de fotos fique acima do esfumaçado */
+.carousel-track {
+    position: relative;
+    z-index: 2; 
 }
 
 /* =========================================
@@ -232,7 +272,7 @@ a { text-decoration: none; }
     width: max-content;
     /* Ajustei a margem para ficar colado na máscara */
     margin: 0; 
-    animation: scroll 30s linear infinite;
+    animation: scroll 40s linear infinite;
 }
 
 .carousel-track img {
