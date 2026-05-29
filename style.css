@@ -254,6 +254,87 @@ a { text-decoration: none; }
         width: 100%;
     }
 }
+
+/* =========================================
+   CAIXA DE DESTAQUE (LADO DIREITO DO HERO)
+   ========================================= */
+
+/* Atualizando o hero-content para separar os dois lados */
+.hero-content {
+    width: 100%;
+    padding: 0 60px;
+    z-index: 2;
+    margin-bottom: 80px;
+    
+    /* MÁGICA AQUI: Coloca lado a lado com espaço no meio */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 40px; 
+}
+
+/* Protege o lado esquerdo para não esticar demais */
+.hero-left {
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Garante que o texto e os botões fiquem alinhados */
+.hero-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 10px; 
+}
+
+/* =========================================
+   CAIXA DE DESTAQUE (LADO DIREITO DO HERO)
+   ========================================= */
+.hero-destaque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.destaque-titulo {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.destaque-img-box {
+    width: 260px;
+    height: 150px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.destaque-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.destaque-img-box:hover img {
+    transform: scale(1.05);
+}
+
+/* Oculta o destaque no celular para não amontoar */
+@media (max-width: 1024px) {
+    .hero-content {
+        flex-direction: column;
+    }
+    .hero-destaque {
+        display: none;
+    }
+}
+
 /* =========================================
    4. CARROSSEL (FLUXO NORMAL)
    ========================================= */
@@ -375,93 +456,6 @@ a { text-decoration: none; }
 
 .gallery-item:hover img { transform: translateY(-80px); }
 
-/* =========================================
-   6. SEÇÃO DE PREÇOS
-   ========================================= */
-.pricing-section {
-    background-color: #000;
-    padding: 100px 60px;
-    position: relative;
-    margin-top: 50px; /* Espaço extra de segurança */
-}
-
-/* CORREÇÃO DE ALINHAMENTO */
-.pricing-container {
-    max-width: 100%;
-    margin: 0;
-    width: 100%;
-}
-
-.section-title {
-    text-align: center; /* Títulos de seções podem ser centralizados ou à esquerda, conforme preferir */
-    margin-bottom: 60px;
-    /* Se quiser tudo na esquerda, mude text-align para 'left' */
-}
-
-.section-title h2 { font-size: 42px; margin-top: 10px; }
-
-.pricing-grid {
-    display: flex;
-    gap: 30px;
-    justify-content: center; /* Mantém os cards no centro visual */
-    align-items: stretch;
-    flex-wrap: wrap;
-}
-
-.pricing-card {
-    background-color: #0F0F0F;
-    border: 1px solid #222;
-    border-radius: 24px;
-    padding: 40px 30px;
-    flex: 1;
-    min-width: 300px;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.pricing-card:hover {
-    transform: translateY(-15px) scale(1.02);
-    border-color: #c5541c;
-    box-shadow: 0 20px 40px rgba(197, 84, 28, 0.15);
-    background-color: #141414;
-}
-
-.card-header h3 { font-size: 24px; margin-bottom: 10px; color: #fff; }
-.desc { color: #888; font-size: 14px; margin-bottom: 20px; }
-.price { font-size: 48px; font-weight: bold; color: #fff; margin-bottom: 30px; }
-.currency { font-size: 20px; color: #888; vertical-align: super; margin-right: 5px; }
-
-.features { list-style: none; margin-bottom: 40px; flex-grow: 1; }
-.features li { margin-bottom: 15px; color: #ccc; font-size: 16px; display: flex; align-items: center; gap: 10px; }
-
-/* Card Destaque */
-.pricing-card.featured {
-    border-color: #4f6bff;
-    background: linear-gradient(180deg, #16161a 0%, #0F0F0F 100%);
-}
-.pricing-card.featured:hover {
-    border-color: #4f6bff;
-    box-shadow: 0 20px 40px rgba(79, 107, 255, 0.2);
-}
-.badge {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #4f6bff;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 /* =========================
    7. RODAPÉ (FOOTER)
    ========================= */
@@ -575,116 +569,6 @@ a { text-decoration: none; }
 }
 
 /* =========================
-   SEÇÃO EXCLUSIVOS (PREMIUM)
-   ========================= */
-.exclusive-section {
-    background-color: #000; /* Fundo preto total */
-    padding: 100px 60px;
-    border-top: 1px solid #111; /* Separação sutil da seção anterior */
-}
-
-.exclusive-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-/* CABEÇALHO (Igual ao da referência) */
-.exclusive-header {
-    display: flex;
-    justify-content: space-between; /* Texto na ponta, botão na outra */
-    align-items: flex-end;          /* Alinha por baixo */
-    margin-bottom: 80px;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.header-text {
-    max-width: 600px;
-}
-
-.label-blue {
-    color: #4f6bff;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 15px;
-}
-
-.header-text h2 {
-    font-size: 56px; /* Título bem grande */
-    line-height: 1.1;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-.header-text p {
-    color: #999;
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-/* GRID DO CONTEÚDO (Esq: Lista | Dir: Foto) */
-.exclusive-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide meio a meio */
-    gap: 80px; /* Espaço grande entre texto e foto */
-    align-items: center;
-}
-
-/* LISTA DE CARACTERÍSTICAS */
-.features-list {
-    display: flex;
-    flex-direction: column;
-}
-
-.feature-item {
-    padding: 40px 0;
-    border-top: 1px solid #333; /* Linha cinza escura em cima */
-}
-
-.feature-item.last {
-    border-bottom: 1px solid #333; /* O último ganha linha embaixo também */
-}
-
-.feature-item h3 {
-    font-size: 32px;
-    font-weight: 500;
-    color: #fff;
-    margin-bottom: 15px;
-    cursor: default;
-}
-
-.feature-item p {
-    color: #888;
-    font-size: 16px;
-    line-height: 1.6;
-    max-width: 90%;
-}
-
-/* IMAGEM DA DIREITA */
-.feature-image-box {
-    width: 100%;
-    height: 600px;
-    border-radius: 24px;
-    overflow: hidden;
-    position: relative;
-}
-
-.feature-image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.feature-image-box:hover img {
-    transform: scale(1.05); /* Zoom suave ao passar o mouse */
-}
-
-/* =========================
    RESPONSIVIDADE (CELULAR)
    ========================= */
 @media (max-width: 900px) {
@@ -712,151 +596,12 @@ a { text-decoration: none; }
     }
 }
 
-/* =========================
-   SEÇÃO PROJETOS DESTAQUE
-   ========================= */
-.featured-section {
-    background-color: #000;
-    padding: 100px 60px;
-    border-top: 1px solid #111; /* Linha sutil separando da anterior */
-}
-
-.featured-container {
-    max-width: 1280px;
-    margin: 0 auto;
-}
-
-/* Cabeçalho Centralizado */
-.featured-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.featured-header h2 {
-    font-size: 48px;
-    color: #fff;
-    margin: 15px 0;
-}
-
-.featured-header p {
-    color: #999;
-    font-size: 18px;
-}
-
-/* Grid de 3 Colunas */
-.featured-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
-    gap: 30px;
-}
-
-/* O CARD */
-.featured-card {
-    background-color: #000;
-    border: 1px solid #222;
-    border-radius: 24px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.featured-card:hover {
-    border-color: #4f6bff; /* Borda azul no hover */
-    transform: translateY(-5px);
-}
-
-/* Parte de Cima: Ícone + Badge */
-.card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
-}
-
-.card-icon {
-    width: 50px;
-    height: 50px;
-    background-color: #111;
-    border-radius: 50%; /* Faz ficar redondo */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #fff;
-}
-
-.card-info {
-    text-align: right;
-}
-
-.card-info h4 {
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 5px;
-}
-
-.badge-pill {
-    background-color: #111;
-    color: #4f6bff;
-    font-size: 10px;
-    font-weight: bold;
-    padding: 4px 10px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    border: 1px solid #222;
-}
-
-/* Corpo: Títulos */
-.card-body {
-    margin-bottom: 30px;
-}
-
-.card-body h3 {
-    font-size: 24px;
-    color: #fff;
-    margin-bottom: 8px;
-}
-
-.card-body p {
-    color: #888;
-    font-size: 14px;
-}
-
-/* Rodapé do Card: Botão + Data */
-.card-action {
-    margin-top: auto; /* Empurra para o fundo */
-}
-
 /* Botão Esticado (Largura total) */
 .btn-primary.full-width {
     display: block; /* Ocupa a linha toda */
     width: 100%;
     text-align: center;
     margin-bottom: 15px;
-}
-
-.post-date {
-    display: block;
-    text-align: center;
-    color: #555;
-    font-size: 12px;
-}
-
-/* RESPONSIVIDADE */
-@media (max-width: 900px) {
-    .featured-grid {
-        grid-template-columns: 1fr; /* 1 coluna no celular */
-    }
-    
-    .featured-section {
-        padding: 60px 20px;
-    }
-    
-    .featured-header h2 {
-        font-size: 32px;
-    }
 }
 
 /* =========================
