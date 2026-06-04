@@ -279,13 +279,15 @@ a { text-decoration: none; }
     width: 100%;
 }
 
-/* Garante que o texto e os botões fiquem alinhados */
+/* LINHA FLEXÍVEL (Agora empilhada: Texto em cima, Botões embaixo) */
 .hero-row {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    align-items: flex-start; /* Garante que tudo fique alinhado à esquerda */
+    gap: 30px; /* Adiciona um espaço bem elegante entre o texto e os botões */
     width: 100%;
-    padding-top: 10px; 
+    max-width: 800px; 
+    padding-top: 20px;
 }
 
 /* =========================================
@@ -455,6 +457,347 @@ a { text-decoration: none; }
 }
 
 .gallery-item:hover img { transform: translateY(-80px); }
+
+/* =========================
+   NOVA SEÇÃO PORTFÓLIO (PROJETOS RECENTES)
+   ========================= */
+.portfolio-section {
+    background-color: #000; /* Mantém o fundo preto como solicitado */
+    padding: 100px 60px;
+    border-top: 1px solid #111;
+}
+
+.portfolio-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.portfolio-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.portfolio-header h2 {
+    font-size: 48px;
+    color: #fff;
+    margin: 15px 0;
+}
+
+.portfolio-header p {
+    color: #999;
+    font-size: 18px;
+}
+
+/* Grid de 3 Colunas */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* O CARD */
+.portfolio-card {
+    background-color: #050505;
+    border: 1px solid #222;
+    border-radius: 24px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.portfolio-card:hover {
+    border-color: #4f6bff;
+    transform: translateY(-5px);
+}
+
+/* Cabeçalho do Card (Ícone e Destaque) */
+.card-top-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.card-icon {
+    font-size: 28px; /* Tamanho do emoji/ícone */
+}
+
+.card-tags {
+    text-align: right;
+}
+
+.card-tags h4 {
+    font-size: 15px;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.badge-pill {
+    background-color: #111;
+    color: #4f6bff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    border: 1px solid #222;
+}
+
+/* Textos Centrais */
+.card-text-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card-text-info h3 {
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.card-text-info p {
+    color: #888;
+    font-size: 13px;
+}
+
+/* Caixa da Imagem */
+.card-image-box {
+    width: 100%;
+    height: 180px; /* Altura padrão para todas as imagens ficarem iguais */
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.card-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.portfolio-card:hover .card-image-box img {
+    transform: scale(1.05); /* Efeito de zoom na foto ao passar o mouse no card */
+}
+
+/* RESPONSIVIDADE DO PORTFÓLIO */
+@media (max-width: 900px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* 1 coluna no celular */
+    }
+    
+    .portfolio-section {
+        padding: 60px 20px;
+    }
+    
+    .portfolio-header h2 {
+        font-size: 32px;
+    }
+}
+
+/* =========================
+   SEÇÃO DEPOIMENTOS (VÍDEOS EM STACK)
+   ========================= */
+.testimonials-section {
+    background-color: #000;
+    padding: 100px 60px;
+    border-top: 1px solid #111;
+    overflow: hidden; /* Evita que os cards vazem da tela nas animações */
+}
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+/* --- LADO ESQUERDO: PILHA DE VÍDEOS --- */
+.video-stack {
+    position: relative;
+    width: 450px;
+    height: 550px;
+    /* Centraliza no mobile */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* O Retângulo Base (O Vídeo) */
+.video-card {
+    position: absolute;
+    width: 260px;
+    height: 460px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Imagem de Capa do Vídeo */
+.video-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+    transition: filter 0.3s ease;
+    /* Esconde os controles por padrão para os vídeos de trás */
+    opacity: 0.8;
+}
+
+/* Clareia o vídeo quando passa o mouse */
+.video-card:hover video {
+    filter: brightness(1); 
+}
+
+/* Posições Iniciais dos Cards */
+.card-1 {
+    left: 0;
+    top: 40px;
+    z-index: 3;
+    transform: rotate(-5deg);
+}
+
+.card-2 {
+    left: 80px;
+    top: 20px;
+    z-index: 2;
+    transform: rotate(0deg);
+}
+
+.card-3 {
+    left: 160px;
+    top: 0;
+    z-index: 1;
+    transform: rotate(5deg);
+}
+
+/* A MÁGICA: Ao passar o mouse, o card vem para frente e endireita */
+.video-card:hover {
+    z-index: 10 !important;
+    transform: scale(1.05) translateY(-20px) rotate(0deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+}
+
+.video-card:hover video {
+    filter: brightness(1); /* Clareia o vídeo */
+    opacity: 1; /* Tira a opacidade para ficar bem nítido */
+}
+
+/* TRUQUE DOS CONTROLES:
+   Desabilita a interação com o vídeo (para não conflitar com o hover) 
+   quando ele NÃO está em evidência.
+*/
+.video-card video {
+    pointer-events: none; 
+}
+
+/* Habilita o clique no botão de som/play apenas quando passa o mouse */
+.video-card:hover video {
+    pointer-events: auto;
+}
+
+/* =========================================
+   CUSTOMIZAÇÃO DO PLAYER DE VÍDEO NATIVO
+   ========================================= */
+
+/* Força a remoção do botão de tela cheia (Chrome, Safari, Edge) */
+video::-webkit-media-controls-fullscreen-button {
+    display: none !important;
+}
+
+/* Opcional: Para deixar o player com um visual um pouco mais limpo */
+video::-webkit-media-controls-enclosure {
+    border-radius: 0;
+}
+
+/* --- LADO DIREITO: TEXTOS --- */
+.testimonials-text {
+    max-width: 500px;
+}
+
+.testimonials-text h2 {
+    font-size: 56px;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.testimonials-text p {
+    color: #999;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.quote-highlight {
+    background: #0a0a0a;
+    border-left: 4px solid #4f6bff;
+    padding: 30px;
+    border-radius: 0 16px 16px 0;
+    margin-bottom: 40px;
+}
+
+.quote {
+    color: #fff !important;
+    font-size: 16px !important;
+    font-style: italic;
+    margin-bottom: 15px !important;
+}
+
+.quote-author h4 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.quote-author span {
+    color: #555;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 1024px) {
+    .testimonials-container {
+        flex-direction: column-reverse; /* Coloca o texto em cima e os vídeos embaixo no celular */
+        text-align: center;
+        gap: 40px;
+    }
+
+    .testimonials-text {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .quote-highlight {
+        text-align: left; /* Mantém o balão de citação organizado */
+    }
+
+    /* Reduz um pouco o tamanho no celular para caber na tela */
+    .video-stack {
+        width: 100%;
+        max-width: 350px;
+        height: 450px;
+    }
+
+    .video-card {
+        width: 200px;
+        height: 350px;
+    }
+    
+    .card-1 { left: 0; }
+    .card-2 { left: 50px; }
+    .card-3 { left: 100px; }
+}
 
 /* =========================
    7. RODAPÉ (FOOTER)
