@@ -800,35 +800,184 @@ video::-webkit-media-controls-enclosure {
 }
 
 /* =========================
-   7. RODAPÉ (FOOTER)
+   SEÇÃO FUNDADOR (AUTORIDADE OVERLAY)
    ========================= */
-.footer {
-    background-color: #0F0F0F;
-    border-top: 1px solid #222;
-    padding: 80px 60px 40px 60px;
+.founder-section {
+    background-color: #000;
+    padding: 100px 60px;
+    border-top: 1px solid #111;
+}
+
+.founder-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Caixa da Imagem (Agora serve como âncora para o texto) */
+.founder-image-box {
+    position: relative; /* O segredo para o texto flutuar aqui dentro */
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); 
+}
+
+.founder-image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Texto Flutuante por cima da imagem */
+.founder-header-overlay {
+    position: absolute;
+    top: 40px; /* Controla a distância do texto para o topo da foto */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 10; /* Garante que fique na frente da foto */
+}
+
+.founder-header-overlay .label-blue {
+    color: #4f6bff;
     font-size: 14px;
-    color: #888;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.founder-header-overlay h2 {
+    font-size: 48px;
+    color: #fff;
+    margin: 0 0 10px 0;
+    /* Sombra pesada para o texto não sumir no fundo da foto */
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9); 
+}
+
+.founder-header-overlay p {
+    color: #ddd;
+    font-size: 18px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+/* Responsividade para Celulares */
+/* Ajustes específicos para Celular */
+@media (max-width: 768px) {
+    .founder-section {
+        padding: 40px 15px; /* Diminui o respiro da seção */
+    }
+    
+    .founder-header-overlay {
+        top: 15px; /* Sobe o texto o máximo possível para não cobrir o centro da foto */
+        position: relative;
+    }
+
+    .founder-header-overlay .label-blue {
+        font-size: 10px; /* Label bem pequena */
+        margin-bottom: 5px;
+    }
+
+    .founder-header-overlay h2 {
+        font-size: 22px; /* Diminui o título principal (antes era 32px no mobile) */
+        margin-bottom: 5px;
+        line-height: 1.2;
+    }
+
+    .founder-header-overlay p {
+        font-size: 13px; /* Diminui o texto descritivo */
+        max-width: 80%; /* Evita que o texto encoste nas bordas */
+        margin: 0 auto;
+    }
+    
+    .founder-image-box {
+        border-radius: 12px;
+        /* Garante que a imagem tenha uma altura mínima para o texto caber */
+        min-height: 250px; 
+    }
+
+    .founder-image-box img {
+        height: 250px; /* Força uma altura um pouco maior no celular */
+        object-fit: cover; /* Não deixa a imagem amassar */
+    }
+}
+
+/* =========================
+   RODAPÉ (FOOTER)
+   ========================= */
+.final-footer {
+    /* Degradê do Preto (topo) para Laranja/Marrom escuro (base) */
+    background: linear-gradient(to bottom, #000000 0%, #8a3800 100%);
+    padding: 60px 60px;
 }
 
 .footer-container {
-    max-width: 1280px;
+    max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinha tudo ao centro na vertical */
 }
 
-.footer-logo img { width: 150px; margin-bottom: 20px; opacity: 0.9; }
-.footer-col p { line-height: 1.6; max-width: 300px; }
-.footer-col h4 { color: #fff; font-size: 16px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 12px; }
-.footer-col ul li a { color: #888; transition: 0.3s; }
-.footer-col ul li a:hover { color: #fff; padding-left: 5px; }
-.social-links { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
-.social-links a { color: #fff; font-weight: bold; display: inline-flex; align-items: center; gap: 5px; }
-.social-links a:hover { color: #c5541c; }
-.copyright { font-size: 12px; border-top: 1px solid #222; padding-top: 20px; margin-top: 20px; }
+/* Lado Esquerdo e Direito (Logos) */
+.footer-left img {
+    height: 70px; /* Ajuste a altura da logo esquerda conforme precisar */
+    width: auto;
+}
+
+.footer-right img {
+    height: 50px; /* Ajuste a altura da logo da direita conforme precisar */
+    width: auto;
+}
+
+/* Centro (Links em 2 colunas) */
+.footer-center {
+    display: flex;
+    gap: 50px; /* Espaço entre a coluna do whatsapp e a de serviços */
+}
+
+.footer-links-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaço vertical entre um link e outro */
+}
+
+.footer-links-col a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    /* Deixa os links em minúsculo igual à sua referência */
+    text-transform: lowercase; 
+}
+
+.footer-links-col a:hover {
+    color: #ffffff; /* Fica branco ao passar o mouse */
+}
+
+/* Responsividade (Para Celulares) */
+@media (max-width: 768px) {
+    .final-footer {
+        padding: 50px 20px;
+    }
+
+    .footer-container {
+        flex-direction: column; /* Empilha tudo */
+        gap: 40px;
+        text-align: center;
+    }
+
+    .footer-center {
+        gap: 40px;
+        justify-content: center;
+    }
+    
+    .footer-links-col {
+        align-items: center;
+    }
+}
 
 /* =========================================
    8. RESPONSIVIDADE TOTAL (CELULAR/TABLET)
@@ -1179,7 +1328,7 @@ video::-webkit-media-controls-enclosure {
 .final-footer {
     /* A MUDANÇA MÁGICA ESTÁ AQUI: */
     /* Começa preto (#000) no topo e termina no seu azul (#4f6bff) embaixo */
-    background: linear-gradient(to bottom, #000000 0%, #4f6bff 100%);
+    background: linear-gradient(to bottom, #000000 0%, #8a3800 100%);
     
     padding: 100px 60px 40px 60px;
     color: #fff;
