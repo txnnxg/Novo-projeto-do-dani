@@ -99,7 +99,7 @@ a { text-decoration: none; }
             rgba(0, 0, 0, 0.80) 40%,  /* Mantém bem escuro até quase a metade */
             rgba(197, 84, 28, 0.7) 100%), /* Alaranjado mais presente na direita */
         /* Camada inferior: A sua foto fotográfica */
-        url('imagens/Pedido-serio.jpeg'); /* <-- MUDE AQUI PARA O NOME DA SUA FOTO */
+        url('../imagens/Pedido-serio.jpeg'); /* <-- MUDE AQUI PARA O NOME DA SUA FOTO */
         
     background-size: cover; /* Faz a imagem cobrir a tela inteira sem distorcer */
     background-position: center; /* Centraliza o foco da foto */
@@ -396,6 +396,27 @@ a { text-decoration: none; }
     flex-wrap: wrap;
     gap: 30px;
     max-width: 1400px; /* Limite suave para leitura */
+}
+
+/* Agrupamento dos botões de Serviços */
+.services-buttons {
+    display: flex;
+    gap: 20px; /* Controla a distância exata entre um botão e outro */
+    align-items: center;
+}
+
+/* Para garantir que no celular eles não fiquem espremidos */
+@media (max-width: 768px) {
+    .services-buttons {
+        flex-direction: column; /* Empilha os botões no celular */
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .services-buttons a {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .label {
@@ -863,44 +884,42 @@ video::-webkit-media-controls-enclosure {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
-/* Responsividade para Celulares */
-/* Ajustes específicos para Celular */
+/* Ajustes específicos para Celular - Seção Fundador */
 @media (max-width: 768px) {
     .founder-section {
-        padding: 40px 15px; /* Diminui o respiro da seção */
+        padding: 40px 20px; 
     }
     
+    /* 1. Tira o texto do modo flutuante e coloca ele no fluxo normal da página */
     .founder-header-overlay {
-        top: 15px; /* Sobe o texto o máximo possível para não cobrir o centro da foto */
-        position: relative;
+        position: relative; 
+        top: 0;
+        margin-bottom: 25px; /* Espaço entre o texto e a foto */
     }
 
     .founder-header-overlay .label-blue {
-        font-size: 10px; /* Label bem pequena */
-        margin-bottom: 5px;
+        font-size: 12px;
     }
 
     .founder-header-overlay h2 {
-        font-size: 22px; /* Diminui o título principal (antes era 32px no mobile) */
-        margin-bottom: 5px;
-        line-height: 1.2;
+        font-size: 28px; /* Tamanho agradável para leitura no celular */
+        margin-bottom: 10px;
     }
 
     .founder-header-overlay p {
-        font-size: 13px; /* Diminui o texto descritivo */
-        max-width: 80%; /* Evita que o texto encoste nas bordas */
-        margin: 0 auto;
+        font-size: 14px;
+        max-width: 100%; 
     }
     
+    /* 2. Deixa a imagem se adaptar perfeitamente sem cortar NADA */
     .founder-image-box {
-        border-radius: 12px;
-        /* Garante que a imagem tenha uma altura mínima para o texto caber */
-        min-height: 250px; 
+        min-height: auto; 
+        border-radius: 10px;
     }
 
     .founder-image-box img {
-        height: 250px; /* Força uma altura um pouco maior no celular */
-        object-fit: cover; /* Não deixa a imagem amassar */
+        height: auto; /* Remove a altura fixa que causava o corte */
+        object-fit: contain; /* Garante que a imagem toda apareça na tela */
     }
 }
 
