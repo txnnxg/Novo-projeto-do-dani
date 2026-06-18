@@ -90,20 +90,16 @@ a { text-decoration: none; }
 /* =========================================
    3. SEÇÃO HERO (COM IMAGEM DE FUDO)
    ========================================= */
-.hero {
-/* 1. O fundo agora tem duas camadas: o degradê transparente e a imagem */
+.hero { /* <-- Não esqueça deste ponto! */
     background: 
-/* Camada superior: Degradê QUASE PRETO na esquerda, alaranjado na direita */
         linear-gradient(90deg, 
-            rgba(0, 0, 0, 0.95) 0%,   /* Muito escuro na esquerda (0.95 de opacidade) */
-            rgba(0, 0, 0, 0.80) 40%,  /* Mantém bem escuro até quase a metade */
-            rgba(197, 84, 28, 0.7) 100%), /* Alaranjado mais presente na direita */
-        /* Camada inferior: A sua foto fotográfica */
-        url('../imagens/Pedido-serio.jpeg'); /* <-- MUDE AQUI PARA O NOME DA SUA FOTO */
+            rgba(0, 0, 0, 0.95) 0%,  
+            rgba(0, 0, 0, 0.80) 40%,  
+            rgba(197, 84, 28, 0.7) 100%); 
         
-    background-size: cover; /* Faz a imagem cobrir a tela inteira sem distorcer */
-    background-position: center; /* Centraliza o foco da foto */
-    background-repeat: no-repeat; /* Evita que a foto se repita como um mosaico */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
     
     padding: 0;
     overflow: hidden;
