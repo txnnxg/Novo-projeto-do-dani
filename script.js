@@ -69,10 +69,9 @@ function atualizarFotosDaSemana() {
     const fundoHero = document.querySelector('.hero'); 
     if (fundoHero) {
         fundoHero.style.backgroundImage = `
-            linear-gradient(90deg,
-                rgba(0, 0, 0, 0.95) 0%,
-                rgba(0, 0, 0, 0.80) 40%,
-                rgba(197, 84, 28, 0.7) 100%),
+                linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.2) 0%,   /* Quase transparente no topo (mostra a foto) */
+                rgba(0, 0, 0, 0.8) 100%), /* Escuro embaixo (para ler o texto branco) */
             url('${fotosEscolhidas.fundo}')
         `;
     }

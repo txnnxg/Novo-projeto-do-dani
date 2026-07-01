@@ -1047,15 +1047,18 @@ video::-webkit-media-controls-enclosure {
        ========================================= */
     .navbar { 
         display: flex;
-        position: relative;
-        height: 80px; 
+        position: absolute; /* Gruda a barra no teto da tela */
+        top: 0;
+        left: 0;
+        height: 90px; /* Altura um pouco maior para dar respiro */
         width: 100%;
+        z-index: 100; /* Garante que fique na frente da foto */
     }
 
     .logo { 
         position: absolute;
         left: 50%;
-        top: 50%;
+        top: 50%; 
         transform: translate(-50%, -50%); 
     }
 
@@ -1088,11 +1091,11 @@ video::-webkit-media-controls-enclosure {
     .hamburger { 
         display: block; 
         position: absolute; 
-        right: 20px; 
-        top: 50%;
+        right: 25px; /* Distância da borda direita */
+        top: 50%; /* Fica na exata mesma linha da logo */
         transform: translateY(-50%); 
         z-index: 9999; 
-        cursor: pointer; 
+        cursor: pointer;
     }
     .close-btn { 
         display: block; 
