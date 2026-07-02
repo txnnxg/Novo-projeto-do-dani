@@ -1194,16 +1194,89 @@ video::-webkit-media-controls-enclosure {
         text-align: center; 
     }
 
-    /* --- SERVIÇOS E GALERIA (MANTIDO DO SEU CÓDIGO) --- */
-    .services { padding: 60px 20px; }
-    .services-header { flex-direction: column; align-items: flex-start; }
-    .services-info h2 { font-size: 32px; }
-    .media-box { 
-        grid-template-columns: 1fr; 
-        height: auto !important; 
-        margin-bottom: 50px; 
+/* =========================================
+       6. SEÇÃO SERVIÇOS (EXATAMENTE COMO A REFERÊNCIA)
+       ========================================= */
+    .services { 
+        padding: 60px 20px; 
     }
-    .gallery-item { height: 350px; }
+    
+    /* Prepara a caixa principal para reordenar as coisas */
+    .services-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* "Desmancha" o cabeçalho para podermos separar o texto dos botões */
+    .services-header { 
+        display: contents; 
+    }
+
+    /* --- 1. TEXTOS NO TOPO --- */
+    .services-info {
+        order: 1; /* Fica em primeiro */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .services-info h2 { 
+        font-size: 20px; /* Tamanho ajustado para o celular */
+        margin-bottom: 15px;
+    }
+
+    .services-info p {
+        font-size: 15px; /* <-- Parágrafo travado em 15px no celular */
+    }
+
+    /* --- 2. FOTOS NO MEIO (ESTILO PÍLULA) --- */
+    .media-box { 
+        order: 2; /* Fica no meio */
+        display: flex;
+        flex-direction: column;
+        gap: 20px; 
+        margin-bottom: 40px; 
+    }
+
+    .gallery-item { 
+        height: 120px; /* Deixa a foto bem achatada/horizontal */
+        border-radius: 80px; /* Arredonda as pontas estilo pílula */
+        overflow: hidden;
+    }
+
+    /* Esconde os textos que ficavam por cima das fotos originais */
+    .gallery-info {
+        display: none; 
+    }
+
+    .gallery-item::after {
+        display: none; /* Remove aquela sombra preta que criamos antes */
+    }
+
+    /* Trava a imagem para não subir ao tocar na tela do celular */
+    .gallery-item:hover img {
+        transform: none;
+    }
+
+    /* --- 3. BOTÕES LÁ NO FINAL --- */
+    .services-buttons {
+        order: 3; /* Vai lá pro fundo, depois das fotos */
+        display: flex;
+        flex-direction: row; /* Coloca os dois botões lado a lado */
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .services-buttons .btn-primary, 
+    .services-buttons .btn-dark {
+        width: auto;
+        padding: 12px 20px;
+        font-size: 12px;
+    }
 
     /* --- FOOTER MOBILE (MANTIDO DO SEU CÓDIGO) --- */
     .footer { padding: 60px 20px; text-align: center; }
