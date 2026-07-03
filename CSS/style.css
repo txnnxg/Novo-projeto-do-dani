@@ -1336,7 +1336,7 @@ video::-webkit-media-controls-enclosure {
 
     /* Reduz drasticamente o título para caber bonitinho (em 1 ou 2 linhas max) */
     .testimonials-text h2 {
-        font-size: 28px; 
+        font-size: 27px; 
         line-height: 1.2;
         margin-bottom: 15px;
     }
