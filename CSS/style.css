@@ -1285,6 +1285,70 @@ video::-webkit-media-controls-enclosure {
     .footer-logo img { margin: 0 auto 20px auto; display: block; }
 }
 
+/* =========================================
+       7. SEÇÃO PORTFÓLIO (AJUSTES MOBILE - MAIS ESTREITO)
+       ========================================= */
+    .portfolio-section {
+        padding: 60px 0; /* Tiramos o respiro daqui para controlar direto no card */
+    }
+
+    .portfolio-card {
+        border: 1px solid rgba(255, 255, 255, 0.6); /* Borda branca um pouco mais suave */
+        padding: 25px 20px; /* Espaço interno */
+        border-radius: 40px; /* Aumenta bastante o arredondamento (igual à referência) */
+        background-color: transparent; /* Deixa transparente para mesclar com o fundo */
+        margin: 0 35px; /* A MÁGICA AQUI: Afasta o card 35px de cada lateral da tela */
+    }
+
+    /* Ajusta a foto interna para acompanhar o novo tamanho do card */
+    .card-image-box {
+        height: 170px; /* Deixa a foto um pouco mais baixa para não achatar */
+        margin-bottom: 20px;
+        border-radius: 16px; /* Arredonda mais as pontas da foto em si */
+    }
+
+    .card-top-info {
+        margin-bottom: 15px;
+    }
+
+    .card-text-info h3 {
+        font-size: 20px; 
+    }
+
+    /* =========================================
+       8. SEÇÃO DEPOIMENTOS (AJUSTES MOBILE TEXTOS)
+       ========================================= */
+    .testimonials-text {
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Deixa o "DEPOIMENTOS" em evidência com a cor azul */
+    .testimonials-text .label-blue {
+        color: #4f6bff; /* O tom de azul do seu site */
+        font-size: 13px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block; 
+    }
+
+    /* Reduz drasticamente o título para caber bonitinho (em 1 ou 2 linhas max) */
+    .testimonials-text h2 {
+        font-size: 28px; 
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+
+    /* Ajusta o texto do parágrafo para ficar menor e elegante */
+    .testimonials-text p {
+        font-size: 14px; 
+        line-height: 1.5;
+        color: #999;
+        padding: 0 15px; /* Evita que o texto encoste totalmente nas bordas da tela */
+    }
+
 /* =========================
    RESPONSIVIDADE (CELULAR)
    ========================= */
